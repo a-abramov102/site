@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 //главная страница
 Route::get('/','App\Http\Controllers\MainController@index')->name('main.index');
 
+Route::get('/farm','App\Http\Controllers\Farm@get');
 
+Route::get('/parse/news', App\Http\Controllers\ParsersController::class)->name('queue.parse');
 Route::group(['prefix'=>'category'],function ()
 {
     //страница категорий

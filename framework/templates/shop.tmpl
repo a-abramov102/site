@@ -1,0 +1,31 @@
+{% for d in data %}
+    <div class="col-12 col-sm-6 col-md-3 serviceCol">
+      <div class="serviceUnit">
+        <div class="serviceImg">
+		<img src="http://placehold.it/350x50" alt="">
+        </div>
+        <div class="serviceName">{{ d.name|escape }}</div>
+        <div class="serviceDesc">
+		{{ d.description|escape }}
+        </div>
+        <div class="moreBtnWrap">
+          <a href="#" >Read more &#8702;</a>
+        </div>
+      </div>
+    </div>
+	{% endfor %}
+	
+	    <div class="col-12 col-sm-6 col-md-3 serviceCol">
+      <div class="serviceUnit">
+        <div class="serviceImg">
+		<img src="http://placehold.it/350x50" alt="">
+        </div>
+        <div class="serviceName">{{ d.name|escape }}</div>
+        <div class="serviceDesc">
+		{{ d.description|escape }}
+        </div>
+        <div class="moreBtnWrap">
+          <a href="#" >Read more &#8702;</a>
+        </div>
+      </div>
+    </div>

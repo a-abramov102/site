@@ -31,7 +31,6 @@ class UserController extends Controller
         ->get();
         $title = 'Users';
         return view('base.index',['title'=>$title, 'users'=>$users,'categories'=>$this->getCategories()]);
-        return view('base.index',['title'=>$title, 'users'=>$users,'categories'=>$this->getCategories()]);
     }
 
     /**

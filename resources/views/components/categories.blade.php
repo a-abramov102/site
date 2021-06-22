@@ -13,6 +13,9 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('news.index')}}">Категории</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('queue.parse')}}" class="nav-link" aria-current="page">Добавить в очередь</a>
+                    </li>
                     @if(Auth::check() && Auth::user()->is_admin)
                         <li class="nav-item">
                             <a class="nav-link" tabindex="-1" aria-disabled="true" href="/admin">Админка</a>

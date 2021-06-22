@@ -1,0 +1,48 @@
+{% for d in data %}
+    <div class="col-12 col-sm-6 col-md-3 serviceCol">
+      <div class="serviceUnit">
+        <div class="serviceImg">
+		<img src="http://placehold.it/350x50" alt="">
+        </div>
+        <div class="serviceName">{{ d.name|escape }}</div>
+        <div class="serviceDesc">
+		{{ d.description|escape }}
+        </div>
+        <div class="moreBtnWrap">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRedact" data-bs-desc="{{ d.description|escape }}" data-bs-id = "{{ d.id|escape }}" data-bs-name = "{{ d.name|escape }}">Редактировать</button>
+		<button id="deleteButton" onclick="deleteFromCatalog({{ d.id|escape }})" class="btn btn-primary" type="button">Удалить</button>
+		
+        </div>
+      </div>
+    </div>
+{% endfor %}
+
+<div class="modal fade" id="modalRedact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title" id="exampleModalLabel">Редактирование</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	  </div>
+	  <div class="modal-body">
+		<form id="redactForm" method = "POST" ACTION = "inc/model.php">
+		  <div class="mb-3">
+			<input type="text" class="id-desc" name = "id" readonly>
+		  </div>
+		  <div class="mb-3">
+			<label for="name" class="col-form-label">Название</label>
+			<input type="text" class="form-control name-modal-input" id="name" name = "name">
+		  </div>
+		  <div class="mb-3">
+			<label for="desc" class="col-form-label">Описание</label>
+			<textarea class="form-control test" id="desc" name = "description"></textarea>
+		  </div>
+		</form>
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		<input type="submit" class="btn btn-primary" form="redactForm" value="Редактировать" name="redactForm">
+	  </div>
+	</div>
+  </div>
+</div>
